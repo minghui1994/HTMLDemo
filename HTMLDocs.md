@@ -96,3 +96,44 @@ Syntax: <*tag*> *Content* </*tag*>
 |tags      |Description                             |  
 |----------|----------------------------------------|
 |script    |Defines a client-side script.           |
+
+<br>
+<br>
+
+<h2>Javascript</h2>
+
+* Can be seen as web-programming. <br>
+* HTML defines the layout, Javascript defines the logic.
+* Javascript must be placed script tag.
+```html
+<script>
+  var x = document.getElementById("someID");
+</script>
+```
+
+<br>
+
+<h3>Simple function to display date</h3>
+
+```html
+<html>
+
+  <body>
+    
+    <div id="string">Click!</div>
+    <button type="button" onclick="displayDate()">Show date</button>
+    
+    <script>
+     
+      function displayDate() {
+           var i = document.getElementById("string");
+           if(i.innerHTML==="Click!"){
+            i.innerHTML=Date()
+          } else{
+             i.innerHTML="Click!";
+          }
+      }
+    </script>
+  </body>
+</html>
+```
