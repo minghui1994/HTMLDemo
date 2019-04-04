@@ -3,7 +3,6 @@
 <html>
 
     <head>
-    
         <title>First Demo</title>
         <meta name = "description" content="HTML with github">
         <meta name = "Author" content="Boo">
@@ -11,9 +10,20 @@
     
     <body>
     
-    
         <!--Content here-->
+        <div id="string">Click for date!</div>
+        <button type="button" onClick = "displayFunct()">Date</button>
         
+        <script>
+            function displayFunct(){
+                var i = document.getElementById("string");
+                if(i.innerHTML==="Click for date!"){
+                    i.innerHTML = Date();
+                } else{
+                    i.innerHTML = "Click for date!"
+                }
+            }
+        </script>
         
         
         <footer>Copyright 2019.</footer>
