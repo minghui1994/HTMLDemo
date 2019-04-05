@@ -58,6 +58,7 @@ console.log(a);
 Performing operations is the same as in other programming language.
 
 <h4>Basic operations</h4>
+
 ```javascript
 var a = 5;
 var b = 10;
