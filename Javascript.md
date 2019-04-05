@@ -1,6 +1,6 @@
-#JavaScript
+<h1>JavaScript</h1>
 
-##Data-type and variables
+<h2>Data-type and variables</h2>
 
 Seven different data types.
 1. undefined
@@ -13,19 +13,22 @@ Seven different data types.
 
 Three ways to declare variables.
 
-#### 1) Using var keyword
+<h4> 1) Using var keyword</h4>
+
 var can be use throughout the program.
 ```javascript
 var myName = "Boo"; //String variable
 var myNumber = 100; //number variable
 ```
-#### 2) Using let keyword
+<h4> 2) Using let keyword</h4>
+
 let will only be used within the scope where we declare.
 ```javascript
 let ourName = "bandName";
 ```
 
-#### 3) Using const keyword
+<h4> 3) Using const keyword</h4>
+
 const cannot be change.
 ```javascript
 const pi = 3.14;
