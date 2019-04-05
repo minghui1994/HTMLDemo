@@ -1,6 +1,10 @@
 
-body {
+html, body {
     background: url(../Background/background-beautiful-blossom-268533.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100%;
+    font-family: sans-serif;
+    padding: 0px;
+    margin: 0px;
 }
