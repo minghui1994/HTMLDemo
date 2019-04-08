@@ -16,7 +16,7 @@ Seven different data types.
 
 Three ways to declare variables.
 
-<h4> 1) Using var keyword</h4>
+<h3> 1) Using var keyword</h3>
 
 var can be use throughout the program.
 ```javascript
@@ -24,14 +24,14 @@ var myName = "Boo"; //String variable
 var myNumber = 100; //number variable
 var decimalNum = 6.993 //floating point number
 ```
-<h4> 2) Using let keyword</h4>
+<h3> 2) Using let keyword</h3>
 
 let will only be used within the scope where we declare.
 ```javascript
 let ourName = "bandName";
 ```
 
-<h4> 3) Using const keyword</h4>
+<h3> 3) Using const keyword</h3>
 
 const cannot be change.
 ```javascript
@@ -57,7 +57,7 @@ console.log(a);
 
 Performing operations is the same as in other programming language.
 
-<h4>Basic operations</h4>
+<h3>Basic operations</h3>
 
 ```javascript
 var a = 5;
@@ -70,7 +70,7 @@ var div = a / b;
 var remainder = a % b;
 ```
 
-<h4>Increment and Decrement</h4>
+<h3>Increment and Decrement</h3>
 
 ```javascript
 var a = 10;
@@ -79,7 +79,7 @@ var increment = a++;
 var decrement = a--;
 ```
 
-<h4>Compound Assignment with Augmented Operations</h4>
+<h3>Compound Assignment with Augmented Operations</h3>
 
 ```javascript
 var a = 10;
@@ -97,15 +97,14 @@ d /= 3; // d = d / 3
 
 <h2>Strings</h2>
 
-<h4>String Declaration</h4>
+<h3>String Declaration</h3>
 
 * String can be declared using " ".
 ```javascript
 var myString = "This is a String";
 ```
-<br>
 
-<h4>Escape Character</h4>
+<h3>Escape Character</h3>
 
 * Everything inside " " is a String, it denotes end and start of a String.
 * What if I want to use " " inside a String?
@@ -114,13 +113,76 @@ var myString = "This is a String";
 var myString = "Adding \"double quote\" inside a String."
 ```
 
-<br>
+* Below is a detailed output list using escape char.
 
-<h4>Quoting without " \ " character</h4>
+|Code |Output         |
+|-----|---------------|
+|\\'  |Single quote   |
+|\\"  |Double quote   |
+|\\\  |Backslash      |
+|\\n  |New line       |
+|\\r  |carriage return|
+|\\t  |tab            |
+|\\b  |Backspace      |
+|\\f  |Form feed      |
+
+
+<h3>Quoting without " \ " character</h3>
 
 * To use " " in a string without the escape character, we can simply use single quote to start and end the string.
 * Double or single quote are both allowed in Javascript.
+* To use both single and double quote in a string, we can use \` ` to start and end the string.
 ```javascript
 var myStr = 'This is a "String" with quote.'
+var myStr = `'This is a "String" with quote.'`
 ```
 
+<h3>String Concatenation</h3>
+
+* String can be concatenate using the "+" operator.
+
+```javascript
+var ConcatStr = "This comes first. " + "This comes second."
+ConcatStr += " Another additional string."
+```
+
+<h3>Constructing Strings with Variables</h3>
+
+```javascript
+var myStr = "This is a string too."
+var Str = "This is a string. " + myStr;
+```
+
+<h3>Finding Length of String</h3>
+
+```javascript
+var strLen = 0;
+var myStr = "Hello World";
+
+strLen = myStr.length;
+```
+
+<h3>Bracket Notation</h3>
+
+* We can find any char in a string using bracket notation.
+* Javascript uses 0-based indexing as well.
+
+```javascript
+var myStr = "HelloWorld";
+var firstChar = myStr[0];
+
+var lastChar = myStr[myStr.length-1];
+```
+
+<h3>String Immutability</h3>
+
+* String are immutable, i.e. cannot be alter once created.
+* Still, they can be change.
+
+```javascript
+var myStr = "Jello World";
+myStr[0] = "H"; //This will give an error
+
+myStr = "Hello World" //Must do this
+
+```
