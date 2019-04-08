@@ -16,7 +16,7 @@ Seven different data types.
 
 Three ways to declare variables.
 
-<h3> 1) Using var keyword</h3>
+<h4> 1) Using var keyword</h4>
 
 var can be use throughout the program.
 ```javascript
@@ -24,14 +24,14 @@ var myName = "Boo"; //String variable
 var myNumber = 100; //number variable
 var decimalNum = 6.993 //floating point number
 ```
-<h3> 2) Using let keyword</h3>
+<h4> 2) Using let keyword</h4>
 
 let will only be used within the scope where we declare.
 ```javascript
 let ourName = "bandName";
 ```
 
-<h3> 3) Using const keyword</h3>
+<h4> 3) Using const keyword</h4>
 
 const cannot be change.
 ```javascript
@@ -57,7 +57,7 @@ console.log(a);
 
 Performing operations is the same as in other programming language.
 
-<h3>Basic operations</h3>
+<h4>Basic operations</h4>
 
 ```javascript
 var a = 5;
@@ -70,7 +70,7 @@ var div = a / b;
 var remainder = a % b;
 ```
 
-<h3>Increment and Decrement</h3>
+<h4>Increment and Decrement</h4>
 
 ```javascript
 var a = 10;
@@ -79,7 +79,7 @@ var increment = a++;
 var decrement = a--;
 ```
 
-<h3>Compound Assignment with Augmented Operations</h3>
+<h4>Compound Assignment with Augmented Operations</h4>
 
 ```javascript
 var a = 10;
@@ -97,14 +97,14 @@ d /= 3; // d = d / 3
 
 <h2>Strings</h2>
 
-<h3>String Declaration</h3>
+<h4>String Declaration</h4>
 
 * String can be declared using " ".
 ```javascript
 var myString = "This is a String";
 ```
 
-<h3>Escape Character</h3>
+<h4>Escape Character</h4>
 
 * Everything inside " " is a String, it denotes end and start of a String.
 * What if I want to use " " inside a String?
@@ -127,7 +127,7 @@ var myString = "Adding \"double quote\" inside a String."
 |\\f  |Form feed      |
 
 
-<h3>Quoting without " \ " character</h3>
+<h4>Quoting without " \ " character</h4>
 
 * To use " " in a string without the escape character, we can simply use single quote to start and end the string.
 * Double or single quote are both allowed in Javascript.
@@ -137,7 +137,7 @@ var myStr = 'This is a "String" with quote.'
 var myStr = `'This is a "String" with quote.'`
 ```
 
-<h3>String Concatenation</h3>
+<h4>String Concatenation</h4>
 
 * String can be concatenate using the "+" operator.
 
@@ -146,14 +146,14 @@ var ConcatStr = "This comes first. " + "This comes second."
 ConcatStr += " Another additional string."
 ```
 
-<h3>Constructing Strings with Variables</h3>
+<h4>Constructing Strings with Variables</h4>
 
 ```javascript
 var myStr = "This is a string too."
 var Str = "This is a string. " + myStr;
 ```
 
-<h3>Finding Length of String</h3>
+<h4>Finding Length of String</h4>
 
 ```javascript
 var strLen = 0;
@@ -162,7 +162,7 @@ var myStr = "Hello World";
 strLen = myStr.length;
 ```
 
-<h3>Bracket Notation</h3>
+<h4>Bracket Notation</h4>
 
 * We can find any char in a string using bracket notation.
 * Javascript uses 0-based indexing as well.
@@ -174,7 +174,7 @@ var firstChar = myStr[0];
 var lastChar = myStr[myStr.length-1];
 ```
 
-<h3>String Immutability</h3>
+<h4>String Immutability</h4>
 
 * String are immutable, i.e. cannot be alter once created.
 * Still, they can be change.
@@ -184,5 +184,132 @@ var myStr = "Jello World";
 myStr[0] = "H"; //This will give an error
 
 myStr = "Hello World" //Must do this
+```
 
+<br>
+
+<h2>Arrays</h2>
+
+<H4>Using Array to Store Variables</h4>
+
+* Elements inside an array is separated by a comma. 
+
+```javascript
+var arr = ["John", 23]; //first element is a string, 2nd is a number.
+var aar2 = ["One", 1, "Two", 2];
+```
+
+<h4>Nested Array</h4>
+
+```javascript
+var arr = [["Universe", 42], ["Everything", 101010]];
+//An array containing 2 arrays
+```
+
+<h4>Getting an Element from an array</h4>
+
+```javascript
+var dataArray = [50, 60, 70, 80];
+var fifty = dataArray[0];
+```
+
+<h4>Modifying Array Data with Indexes</h4>
+
+* Unlike string, we can modify data with indexes.
+
+```javascript
+var arr = [50, 60, 70, 80];
+arr[2] = 75;
+```
+
+<h4>Access Multi-Dimensional Arrays with Indexes</h4>
+
+```javascript
+var arr = [[1,2,3], [4,5,6], [7,8,9], [[10,11,12], 13, 14]];
+
+var myData = arr[0][0]; //1
+var myData2 = arr[3][0][0]; //10
+```
+
+<h4>Manipulate Arrays with push()</h4>
+
+* Use to append data to an array.
+
+```javascript
+var arr = ["Stimpson", "J", "Dog"];
+arr.push(["happy", "joy"]);
+//array now equals to ["Stimpson, "J", "Dog", ["happy, "joy"]];
+```
+
+<h4>Manipulate Arrays with pop()</h4>
+
+* Use to remove last element from an array.
+
+```javascript
+var arr = [1,2,3];
+arr.pop();
+//arr now equals [1,2]
+```
+
+<h4>Manipulate Arrays with shift()</h4>
+
+* Similar to pop(), but...
+* Remove 1st element instead of last.
+
+```javascript
+var arr = [1,2,3];
+arr.shift();
+//arr now equals [2,3]
+```
+
+<h4>Manipulate Arrays with unshift()</h4>
+
+* Similar to push() but...
+* Add element to first element instead of last.
+
+```javascript
+var arr = [1,2,3];
+arr.unshift(0);
+//arr now equals [0,1,2,3]
+```
+
+<br>
+
+<h2>Functions</h2>
+
+* Functions can be created just like other language.
+
+```javascript
+var a = 5;
+var b = 10;
+var sum = Addition(a, b);
+
+function Addition(a, b) {
+  console.log(a + b);
+}
+```
+
+<h4>Function Scope</h4>
+
+* Function can be declared without the "var" keyword, this will make the variable global.
+* If a variable is declared with a var keyword inside a function, that variable is only available in that function.
+* Global variable is created outside of a function.
+
+```javascript
+var myGlobal = 10;
+
+function funct1(){
+  anotherGlobal = 20; //no var keyword, global
+  var funct1Var = 10; //scope on in this function.
+}
+
+function  funct2() {
+  var output = "";
+  if(typeof myGlobal != "undefined"){
+    output += "Globa; variable: " + myGlobal;
+  }
+  if(typeof anotherGlobal != "undefined"){
+    output += "anotherGlobal: " + anotherGlobal;
+  }
+}
 ```
