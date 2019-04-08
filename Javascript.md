@@ -114,3 +114,13 @@ var myString = "This is a String";
 var myString = "Adding \"double quote\" inside a String."
 ```
 
+<br>
+
+<h4>Quoting without " \ " character</h4>
+
+* To use " " in a string without the escape character, we can simply use single quote to start and end the string.
+* Double or single quote are both allowed in Javascript.
+```javascript
+var myStr = 'This is a "String" with quote.'
+```
+
