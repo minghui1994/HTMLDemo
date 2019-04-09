@@ -366,3 +366,44 @@ console.log("Before: " + JSON.stringify(testArr));
 console.log(nextInLine(testArr, 6));
 console.log("After: " + JSON.stringify(testArr));
 ```
+
+<br>
+<br>
+
+<h2>Boolean Values</h2>
+
+* True or False only.
+
+<h4>Check equal</h4>
+
+* Want to check if 2 values are the same.
+* Like in other programming language, use ==.
+
+```javascript
+function equate(val){
+  if(val == 12){
+    return "Equal";
+  }
+  return "Not Equal";
+}
+
+equate(10);
+```
+
+<h4>Strict equality Operator</h4>
+
+* == will convert both comparable to the same type.
+* 3 == '3' will equate to true.
+* === does not do any conversion.
+* 3 === 3 is **true**, 3 === '3' is **false**
+
+<h4>Inequality, Strict Inequality and Logical Comparing Operator</h4>
+
+|Code|Description      |
+|----|-----------------|
+|!=  |Not equal, convert so both data type are the same.|
+|!== |Strict inequality, does not convert both data type|
+|\>  |More than         |
+|>=  |More than or equal|
+|<   |Less than         |
+|<=  |Less than or equal|
