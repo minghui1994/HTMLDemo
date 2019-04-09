@@ -456,3 +456,140 @@ function sequentialSize(val){
   }
 }
 ```
+
+<br>
+<br>
+
+<h2>Objects</h2>
+
+* Anything before the colon is a property
+
+```javascript
+var Dog = {
+  "name": "Xiao Qiang",
+  "age": 10,
+  "favFood": ["Fish", "Chicken", "Beef"]
+};
+```
+
+<h4>Accessing Object Properties with Dot Notation</h4>
+
+```javascript
+var Dog = {
+  "name": "Xiao Qiang",
+  "age": 10,
+  "favFood": ["Fish", "Chicken", "Beef"]
+};
+
+var nameVal = Dog.name;
+var ageVal = Dog.age;
+```
+
+<h4>Accessing Object Properties with Bracket Notation</h4>
+
+* Required when there is a white space in object's properties.
+
+```javascript
+var Restaurant = {
+  "an entree" : "burger",
+  "my side" : "chips",
+  "the drink" : "water"
+};
+
+var myEntree = Restaurant["an entree"];
+var myDrink = Restaurant["the drink"];
+```
+
+<h4>Accessing Object Properties with Variables</h4>
+
+```javascript
+var testObj = {
+  12: "Namath",
+  16: "Montana",
+  19: "Unitas"
+};
+
+var playerNumber = 16;
+var player = testObj[playerNumber];
+```
+
+<h4>Using Dot Notation to Update Object Properties</h4>
+
+```javascript
+var Dog = {
+    "name": "Xiao Qiang",
+    "age": 10,
+    "favFood": ["Fish", "Chicken", "Beef"]
+}
+
+Dog.name = "Da Qiang";
+```
+
+<h4>Add New Properties to an Object</h4>
+
+* Can do so using dot or bracket notation.
+
+```javascript
+var Dog = {
+    "name": "Xiao Qiang",
+    "age": 10,
+    "favFood": ["Fish", "Chicken", "Beef"]
+}
+
+Dog.bark = "woof"; //add a new property to dog using dot notation
+Dog["Status"] = "Sleep"; //using bracket notation
+```
+
+<h4>Deleting Properties of an Object</h4>
+
+* Can do so using the delete keyword.
+
+```javascript
+var Dog = {
+    "name": "Xiao Qiang",
+    "age": 10,
+    "favFood": ["Fish", "Chicken", "Beef"]
+}
+
+delete Dog.favFood;
+```
+
+<h4>Checking if an Object Has A Property</h4>
+
+```javascript
+var Dog = {
+    "name": "Xiao Qiang",
+    "age": 10,
+    "favFood": ["Fish", "Chicken", "Beef"]
+}
+
+function checkObj(checkProp) {
+  if(Dog.hasOwnProperty(checkProp)){
+    return Dog[checkProp];
+  } else {
+    return "Not Found";
+  }
+}
+```
+
+<h4>Manipulating Complex Objects</h4>
+
+* Similar to JSON.
+* 2 Objects in music array.
+
+```javascript
+var music = [{
+    "Artist": "Billy Joel",
+    "Title": "Piano Man",
+    "Release_year": 1973,
+    "Formats": ["CD", "8T", "LP"],
+    "Gold": true
+  },
+  {
+    "Artist": "ME",
+    "Title": "Briyani",
+    "Release_year": 2019,
+    "Formats": ["Youtube", "CD", "Blu-ray"],
+    "Gold": false
+  }]
+```
