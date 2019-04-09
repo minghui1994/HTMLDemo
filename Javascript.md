@@ -313,3 +313,56 @@ function  funct2() {
   }
 }
 ```
+
+<h4>Global vs. Local Scope in Functions</h4>
+
+* It is possible to have a local and global variable with the same name.
+* The local variable will take precedence over the global variable.
+
+```javascript
+var outerWear = "T-Shirt"; //global variable
+
+function myOutfit() {
+  var outerWear = "Sweater"; //local variable
+  return outerWear
+}
+
+console.log(myOutfit()); //sweater
+console.log(outerWear); //T-Shirt
+```
+
+<h4>Understanding Undefined Value Returned from a Function</h4>
+
+* Function can return value, but can choose not to as well.
+
+```javascript
+var sum = 0;
+function add(){
+  sum += 3;
+}
+
+function addFive(){
+  sum += 5;
+}
+
+console.log(add()); //undefined since no return value
+```
+
+<h4>Queue</h4>
+
+* Understanding how queue works.
+* push() adds an item to the end of the queue.
+* shift() remove the first element of the queue.
+
+```javascript
+function nextInLine(arr, item) {
+  arr.push(item); //add item to the rear of arr
+  return arr.shift(); //remove first element of arr
+}
+
+var testArr = [1,2,3,4,5];
+
+console.log("Before: " + JSON.stringify(testArr));
+console.log(nextInLine(testArr, 6));
+console.log("After: " + JSON.stringify(testArr));
+```
