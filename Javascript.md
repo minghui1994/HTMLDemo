@@ -407,3 +407,52 @@ equate(10);
 |>=  |More than or equal|
 |<   |Less than         |
 |<=  |Less than or equal|
+
+<br>
+<br>
+
+<h2>Switch Statements</h2>
+
+<h4>Typical Swtich Case</h4>
+
+* Check the value of val, if it is 1, return alpha, 2 returns Beta and so on.
+
+```javascript
+function caseInSwitch(val){
+  var answer = "";
+  switch (val) {
+    case 1: answer = "alpha"; break;
+    case 2: answer = "Beta"; break;
+    case 3: answer = "Gamma"; break;
+    case 4: answer = "Delta"; break;
+    default: answer = "Stuff"; break;
+  }
+  return answer;
+}
+console.log(caseInSwitch(1));
+```
+
+<h4>Multiple Identical Options in Switch Statement</h4>
+
+* Multiple input give same output.
+* If val is 1, 2 or 3, return Low and so on.
+
+```javascript
+function sequentialSize(val){
+  var answer = "";
+  switch(val){
+    case 1:
+    case 2:
+    case 3:
+      answer = "low"; break;
+    case 4:
+    case 5:
+    case 6:
+      answer = "Mid"; break;
+    case 7:
+    case 8:
+    case 9:
+      answer = "High"; break;
+  }
+}
+```
