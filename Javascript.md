@@ -649,3 +649,47 @@ console.log(myRose);
 var myMaple = plants[1].list[1];
 console.log(myMaple);
 ```
+
+<h4>Update a List Exercise</h4>
+
+* Each record has a label.
+* Write a function to update the property and value.
+
+```javascript
+var record = {
+  "1111": {
+    "Artist": "Metallica",
+    "Year": 1990
+    "Tracks": ["Enter Sandman", "Master of Puppet", "Nothing Else Matter"]
+  },
+  "1112": {
+    "Artist": "GnR",
+    "Year": 1987,
+    "Tracks": ["Welcome to the Jungle", "Sweet Child", "November Rain"]
+  },
+  "1113": {
+    "Artist": "Robert Palmer",
+    "Tracks": []
+  },
+  "1114": {
+    "Tracks": ["Does your mother know", "Mama Mia"]
+  }
+}
+
+var CollectionCopy = JSON.parse(JSON.stringify(record)); //Before update
+updateRecords("1111", "Tracks", "Seek and Destroy");
+CollectionCopy = JSON.parse(JSON.stringify(record)); //After Update
+
+function updateRecords(id, prop, value){
+  
+  if (value ===""){ //empty value, delete that property
+    delete record[id][prop];
+  } else if (prop === "Tracks"){
+    record[id][prop] = record[id][prop] || [];
+    record[id][prop] = push[value];
+  } else {
+    record[id][prop] = value;
+  }
+  return record;
+}
+```
