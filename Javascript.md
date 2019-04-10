@@ -569,7 +569,7 @@ function checkObj(checkProp) {
   } else {
     return "Not Found";
   }
-}
+};
 ```
 
 <h4>Manipulating Complex Objects</h4>
@@ -591,5 +591,61 @@ var music = [{
     "Release_year": 2019,
     "Formats": ["Youtube", "CD", "Blu-ray"],
     "Gold": false
-  }]
+  }];
+
+
+var heavyMetal = [{
+  "Artist": "Metallica",
+  "best_Song": "Enter Sandman",
+  "Format": ["CD", "Blu-ray", "Youtube"],
+  "Gold": true
+},
+{
+  "Artist": "GnR",
+  "best_Song": "SweetChild",
+  "Format": ["CD", "Blu-ray", "Youtube"],
+  "Gold": true
+}];
+```
+
+<h4>Accessing Nested Objects</h4>
+
+* We can use multiple dots or brackets notation to access nested objects
+* A car has interior (inside), inside there is a glove box which contains a map.
+* Recall {} denotes an object.
+
+```javascript
+var storage = {
+  "car": {
+    "inside":{
+      "glove box": "maps",
+      "passenger seats": "crumbs"
+    },
+    "outside": {
+      "trunk": "tools"
+    }
+  }
+};
+
+var gloveBoxContent = storage.car.inside["glove box"];
+console.log(gloveBoxContent); //should print out maps
+```
+
+<h4>Accessing Nested Arrays</h4>
+
+```javascript
+var plants = [{
+  "type": "flowers",
+  "list": ["rose", "turnips", "dandelion"]
+},
+{
+  "type": "trees",
+  "list": ["fir", "maple", "birch"]
+}];
+
+var myRose = plants[0].list[0];
+console.log(myRose);
+
+var myMaple = plants[1].list[1];
+console.log(myMaple);
 ```
