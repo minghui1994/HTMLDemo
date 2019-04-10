@@ -39,6 +39,7 @@ const pi = 3.14;
 ```
 
 <br>
+<br>
 
 <h2>Console log</h2>
 
@@ -51,6 +52,7 @@ var a = 10;
 console.log(a);
 ```
 
+<br>
 <br>
 
 <h2>Operations</h2>
@@ -691,5 +693,132 @@ function updateRecords(id, prop, value){
     record[id][prop] = value;
   }
   return record;
+}
+```
+
+<br>
+<br>
+
+<h2>Loops</h2>
+
+* Similar to other programming language.
+
+<h4>While Loops</h4>
+
+```javascript
+var i = 0;
+var arr = [];
+while (i < 5){
+  arr.push(i);
+  i++;
+} 
+console.log(arr);
+```
+
+<h4>For Loop</h4>
+
+```javascript
+var arr = [];
+for (var i = 0; i < 10; i++){
+  arr.push(i);
+}
+console.log(arr);
+```
+
+<br>
+<br>
+
+<h2>Random</h2>
+
+<h4>Generating Random Fractions</h4>
+* We can use Math.random() function to generate random fraction.
+
+```javascript
+function randomFunction() {
+  
+  return Math.random();
+  
+}
+```
+
+<h4>Generating Random Whole Numbers<h4>
+
+* Can use Math.floor() to achieve.
+* Math.floor() round down to the nearest whole number.
+
+```javascript
+var randWholeNumberBetween0and9 = Math.floor(Math.random() * 20); //get a whole number between 0 and 20 exclusively
+
+function generateRandWholeBetween(val){
+  return Math.floor(Math.random() * val);
+}
+
+console.log(generateRandWholeBetween(10));
+```
+
+<h4>Generating Random Number Within a Range</h4>
+
+```javascript
+function randomRange(min, max) {
+  return Math.floor(Math.random() * (max-min+1)) + min;
+  
+}
+```
+
+<br>
+<br>
+
+<h2>Parsing</h2>
+
+<h4>Using the parseInt Function</h4>
+
+* Takes a string and returns an int.
+* If a string cannot be coverted, will return NAN (Not a Number).
+
+```javascript
+function convertToInteger(str) {
+  return parseInt(str);
+}
+convertToInteger("56");
+```
+
+
+<h4>Use the parseInt Function with a Radix</h4>
+
+* Specify base of number in a string, i.e. base 2 is binary, base 10 is decimal
+
+```javascript
+function convertToInt(str) {
+  return parseInt(str, 2); //binary
+}
+convertToInt("10011");
+```
+
+<br>
+<br>
+
+<h2>Advance Conditional Statement</h2>
+
+<h4>Using the Conditional (Ternary) Operator</h4>
+
+* Aka one line if-else statement.
+* condition ? statement-if-true : statement-if-false
+
+```javascript
+function checkEqual(a, b) {
+  return a === b ? true : false;
+}
+```
+
+<h4>Use Multiple Conditional (Ternary) Operators</h4>
+
+* Conditional operators can be nested.
+* The following is a function to check sign.
+* Returns positive if number is positive, negative if number is negative
+* statement-if-false can be replaced with a condition, in case statement-if-true is not true.
+
+```javascript
+function checkSign(num) {
+  return num > 0 ? "positive" : num < 0 ? "negative" : "zero";
 }
 ```
