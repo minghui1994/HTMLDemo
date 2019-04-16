@@ -90,6 +90,8 @@ const PI = freezeObj();
 console.log(PI); // will be 999 if MATH_CONSTANTS not frozen.
 ```
 
+
+
 <br>
 <br>
 
@@ -847,6 +849,43 @@ function updateRecords(id, prop, value){
 }
 ```
 
+<h4>Destructuring Assignment to Assign Variables from Objects</h4>
+
+* The following code shows the traditional way to assign objects parameter to its own variable.
+
+```javascript
+var voxel = {x: 3.6, y: 7.4, z: 6.54};
+
+var x = voxel.x;
+var y = voxel.y;
+var z = voxel.z;
+```
+
+* Using destructuring
+
+```javascript
+var voxel = {x: 3.6, y: 7.4, z: 6.54};
+
+const {x:a, y:b, z:c} = voxel; //destructuring syntax
+```
+
+* Example
+
+```javascript
+const AVG_TEMPERATURES = {
+  today: 77.5;
+  tomorrow: 79;
+};
+
+function getTempofTmr(AvgTemperatures){
+  "use strict"
+  
+  const {tomorrow:tempOfTomorrow} = avgTemperatures; //get "tomorrow" from AVG_TEMPERATURES obj (avgTemperatures) and assign it to "tempOfTomorrow"
+  return tempOfTomorrow;
+}
+
+console.log(getTempofTmr(AVG_TEMPERATURES));
+```
 <br>
 <br>
 
