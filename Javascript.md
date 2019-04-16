@@ -242,6 +242,22 @@ myStr[0] = "H"; //This will give an error
 myStr = "Hello World" //Must do this
 ```
 
+<h4>Create Strings using Template Literals</h4>
+
+* Template literal are a special type of Strings which makes creating complex string easier.
+
+```javascript
+const person = {
+  name: "Zodiac Hasbro",
+  age: 56
+}
+
+const greetings = `Hello, my name is ${person.name}! I am ${person.age} years old.`;
+
+console.log(greetings);
+```
+
+<br>
 <br>
 
 <h2>Arrays</h2>
@@ -347,7 +363,7 @@ function mutateArr() {
 console.log(arr);
 ```
 
-<h4>Using Spread Operator to Evaluate Arrays In-Place<h4>
+<h4>Using Spread Operator to Evaluate Arrays In-Place</h4>
 
 * Just like a rest operator, 3 dots.
 * In layman term, to make a copy of an array.
@@ -520,6 +536,64 @@ var testArr = [1,2,3,4,5];
 console.log("Before: " + JSON.stringify(testArr));
 console.log(nextInLine(testArr, 6));
 console.log("After: " + JSON.stringify(testArr));
+```
+
+<h4>Write Concise Declarative Functions</h4>
+
+* An object can contain function.
+* The below code shows a longer way to do it.
+
+```javascript
+const bicycle = {
+  gear: 2,
+  setGear: function(newGear){
+    "use strict"
+    this.gear = newGear;
+  }
+};
+
+bicycle.setGear(3);
+console.log(bicycle.gear);
+```
+
+* Simpler method: we can remove the function keyword and colon
+
+```javascript
+const bicycle = {
+  gear: 2,
+  setGear(newGear){
+    "use strict";
+    this.gear = newGear;
+  }
+};
+bicycle.setGear(3);
+console.log(bicycle.gear);
+```
+
+<h4>Use Class Syntax to Define a Constructor Function</h4>
+
+* We can create object using the class keyword.
+* The following code shows an older method to create an object.
+
+```javascript
+var SpaceShuttle = function(targetPlanet){ //constructor
+  this.targetPlanet = targetPlanet;
+}
+
+var zeus = new SpaceShuttle('Jupiter');
+console.log(zeus.targetPlanet);
+```
+
+* Class keyword will replace the constructor function creation.
+
+```javascript
+class SpaceShuttle {
+  constructor(targetPlanet){
+    this.targetPlanet = targetPlanet;
+  }
+}
+var zeus = new SpaceShuttle('Jupiter');
+console.log(zeus.targetPlanet);
 ```
 
 <br>
@@ -866,7 +940,7 @@ var z = voxel.z;
 ```javascript
 var voxel = {x: 3.6, y: 7.4, z: 6.54};
 
-const {x:a, y:b, z:c} = voxel; //destructuring syntax
+const {x:a, y:b, z:c} = voxel; //destructuring syntax, starts with {
 ```
 
 * Example
@@ -886,6 +960,125 @@ function getTempofTmr(AvgTemperatures){
 
 console.log(getTempofTmr(AVG_TEMPERATURES));
 ```
+
+<h4>Destructuring Assignment with Nested Objects</h4>
+
+```javascript
+const LOCAL_FORECAST = {
+  today: {min: 72, max: 83},
+  tomorrow: {min: 73.3, max: 84.6}
+};
+
+function getMaxOfTmr(forecast) {
+  "use strict"
+  
+  const {tomorrow: {max: maxOfTomorrow}} = forecast;
+  
+  return maxOfTomorrow;
+}
+
+console.log(getMaxOfTmr(LOCAL_FORECAST));
+```
+
+<h4>Use Destructuring Assignment to Assign Variables from Arrays</h4>
+
+* Assign RHS to LHS, in order.
+* Cannot specify which element to assign as it is in order.
+* We just use commas to overcome this.
+
+```javascript
+const [z, x] = [1, 2, 3, 4, 5]; //assign 1 and 2 to z and x respectively
+const [i, j, , k] = [6, 7, 8, 9, 10]; //assign 6, 7 and 9 to i, j and k respectively.
+console.log(z, x);
+
+let a = 8, b = 6; //we can use destruturing to swap a and b
+(() => {
+  "use strict"
+  [a, b] = [b, a];
+})();
+
+console.log(a); //6
+console.log(b); //8
+```
+
+<h4>Use Destructuring Assignment with the Rest Operator</h4>
+
+```javascript
+const source = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+function removeFirstTwo(list) {
+  
+  const [ , ,...arr] = list; //first 2 element ignore, add the rest of list into arr.
+  return arr;
+}
+
+const arr = removeFirstTwo(source);
+console.log(arr);
+console.log(source);
+```
+
+<h4>Use Destructuring Assignment to Pass an Object as a Function's Parameters</h4>
+
+```javascript
+const stats = {
+  max: 56.78,
+  standard_deviation: 4.34,
+  median: 34.54,
+  mode: 23.87,
+  min: -0.75,
+  average: 35.85
+};
+
+const half = (function() {
+  
+  return function half({max, min}) { //instead of passing stats, pass in max and min
+    return (max + min) / 2.0; //no longer need stats.max or stats.min, just max and min
+  }
+})();
+
+console.log(stats);
+console.log(half(stats));
+```
+
+<h4>Write Concise Object Literal Declarations Using Simple Fields</h4>
+
+```javascript
+const createPerson = (name, age, gender) => { //arrow function which take in 3 variables
+  
+  return {
+    name: name,//repeating variable
+    age: age,
+    gender: gender
+  };
+};
+console.log(createPerson("Zodiac Hasbro", 56, "male"));
+```
+
+* If we are going to create object where value is value of variable, there is simpler way to do it.
+
+```javascript
+//this code is same as previous.
+const createPerson = (name, age, gender) => ({name, age, gender});
+console.log(createPerson("Zodiac Hasbro", 56, "male"));
+```
+
+<h4>Use Getters and Setters to Control Access to an Object</h4>
+
+```javascript
+class Book{ //using class keyword to create object
+  constructor(author){
+    this._author = author;
+  }
+  
+  get writer(){ //getter
+    return this._author;
+  }
+  
+  set writer(updatedAuthor){ //setter
+    this._author = updatedAuthor;
+  }
+}
+```
+
 <br>
 <br>
 
