@@ -14,11 +14,12 @@ Seven different data types.
 6. number
 7. object
 
-Three ways to declare variables.
+Three ways to declare variables. **Good Practice: Use only let and const**
 
 <h4> 1) Using var keyword</h4>
 
-var can be use throughout the program.
+* var can be use throughout the program.
+
 ```javascript
 var myName = "Boo"; //String variable
 var myNumber = 100; //number variable
@@ -26,16 +27,67 @@ var decimalNum = 6.993 //floating point number
 ```
 <h4> 2) Using let keyword</h4>
 
-let will only be used within the scope where we declare.
+* let will only be used within the scope where we declare.
+
 ```javascript
 let ourName = "bandName";
 ```
 
 <h4> 3) Using const keyword</h4>
 
-const cannot be change.
+* const is read only cannot be change.
+
 ```javascript
 const pi = 3.14;
+```
+
+<h4>Difference Between var and let Keyword</h4>
+
+* let does not let you declare a variable twice.
+* If we change all the var in the following code to let, we will get an error.
+* If we declared a variable using var, it is declared globally.
+
+```javascript
+var catName = "Beau";
+var quote;
+
+var catName = "Quincy";
+
+function catTalk(){
+  "use strict"; //enable strict mode, to catch common coding mistake and unsafe action.
+  
+  catName = "Oliver";
+  quote = catName + " says Meow!";
+}
+
+catTalk();
+```
+
+<h4>Prevent Object Mutation</h4>
+
+* Even though const is read only, the data can be mutated.
+* Need to freeze an object to prevent that.
+* Object.freeze(obj)
+
+```javascript
+function freezeObj() {
+  "use strict"
+  const MATH_CONSTANTS = {
+    PI: 3.14
+  };
+  
+  Object.freeze(MATH_CONSTANTS); //freeze MATH_CONSTANTS to prevent it from changing.
+  
+  try{
+    MATH_CONSTANTS.PI = 999; //will run if MATH_CONSTANTS not frozen.
+  } catch (ex) {
+    console.log(ex);
+  }
+  return MATH_CONSTANTS.PI;
+}
+
+const PI = freezeObj();
+console.log(PI); // will be 999 if MATH_CONSTANTS not frozen.
 ```
 
 <br>
@@ -275,6 +327,44 @@ arr.unshift(0);
 //arr now equals [0,1,2,3]
 ```
 
+<h4>Mutate an Array Declared With const</h4>
+
+* We cannot reassign an array declared with const, but we can change the element using bracket notation.
+
+```javascript
+const arr = [2, 5, 7];
+
+function mutateArr() {
+  "use strict";
+  
+  //arr = [5 , 2, 7]; //This will give an error
+  arr[0] = 5;
+  arr[1] = 2;
+  arr[2] = 7;
+}
+console.log(arr);
+```
+
+<h4>Using Spread Operator to Evaluate Arrays In-Place<h4>
+
+* Just like a rest operator, 3 dots.
+* In layman term, to make a copy of an array.
+* Previously, assigning an array to another array (arr1 = arr2) does not make a copy, but will make both equal.
+* If arr1 = arr2, whatever we change in one array the other will change as well.
+
+```javascript
+const arr1 = ['Jan', 'FEB', 'MAR', 'APR', 'MAY'];
+let arr2;
+(function() {
+  //arr2 = arr1; //without spread operator
+  arr2 = [...arr1]; //using spread operator
+  arr1[0] = 'potato'
+})();
+console.log(arr2); //first element will be potato before using spread operator
+```
+
+
+<br>
 <br>
 
 <h2>Functions</h2>
@@ -348,6 +438,67 @@ function addFive(){
 }
 
 console.log(add()); //undefined since no return value
+```
+
+<h4>Using Arrow Functions to Write Concise Anonymous Functions</h4>
+
+* A function with no name is a anonymous function.
+
+```javascript
+var magic = function() {
+  return new Date();
+};
+
+var magic = () => { // same as above, remove function keyword and add an arrow
+  return new Date()''
+};
+```
+
+<h4>Write Arrow Functions with Parameters</h4>
+
+* We can pass parameters to arrow functions.
+
+```javascript
+var myConcat = function(arr1, arr2){
+  return arr1.concat(arr2);
+};
+console.log(myConcat([1,2], [3,4,5]));
+```
+
+```javascript
+const myConcat = (arr1, arr2) => arr1.concat(arr2); // can be shorten since only got 1 return statement, remove return keyword and curly bracket.
+
+console.log(myConcat([1,2], [3,4,5]));
+```
+
+<h4>Higher Order Arrow Functions</h4>
+
+* Arrow functions work well with functions taking function as argument.
+
+```javascript
+const realNumArr = [4, 5.6, -9.8, 3.14, 42, 6, 8.34, -2];
+
+const squareList = (arr) => {
+  const squaredIntegers = arr.filter(num => Number.isInteger(num) && num > 0).map(x => x * x) // result of arr is squared +ve integer;
+  return squaredIntegers;
+}
+
+const squaredIntegers = squareList(realNumArr);
+console.log(squaredIntegers);
+```
+
+<h4>Using Rest Operator with Function Parameters</h4>
+
+* A rest operator is 3 dots.
+* Use to pass into a function, good when we do not have fixed number of arguments.
+
+```javascript
+const sum = (function() {
+  return function sum(...args){
+    return args.reduce((a,b) => a + b, 0);
+  };
+})();
+console.log(sum(1, 2, 3, 4)); // 4 arguments, can have more or fewer.
 ```
 
 <h4>Queue</h4>
